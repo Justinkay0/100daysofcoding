@@ -107,8 +107,13 @@ def blackjack():
         while player_state:
             if input("Type 'y' to get another card, type 'n' to pass: ").lower() == 'y':
                 user = deal_cards(1,deck,user)
+                if 11 in user and sum(user) > 21:
+                    # Change ace from 11 to 1 
+                    user.remove(11)
+                    user.append(1)
                 print(f"\t Your cards are: {user}, current score: {sum(user)}")
                 print(f"\t Dealer's first card: {dealer[0]}")
+
                 if sum(user) > 21:
                     print("You went over, you lost")
                     break
