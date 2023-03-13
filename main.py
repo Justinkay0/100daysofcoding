@@ -104,6 +104,12 @@ def blackjack():
         dealer = dealer_check(dealer,deck)
         print(f"\t Your cards are: {user}, current score: {sum(user)}")
         print(f"\t Dealer's first card: {dealer[0]}")
+        if 11 in user and 10 in user and len == 2:
+            player_state = False
+            print("Player has blackjack.")
+        if 11 in dealer and 10 in dealer and len == 2:
+            player_state = False
+            print("Dealer has blackjack.")
         while player_state:
             if input("Type 'y' to get another card, type 'n' to pass: ").lower() == 'y':
                 user = deal_cards(1,deck,user)
